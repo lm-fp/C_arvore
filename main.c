@@ -11,7 +11,7 @@ typedef struct NO{
 } NO;
 
 NO* criar(NO *raiz, bool criada);
-NO* inserir(NO *raiz);
+void inserir(NO *raiz, int numero);
 void imprimir();
 NO* esvaziar(NO *raiz);
 int altura(NO *raiz);
@@ -24,11 +24,14 @@ int main(void) {
 
   do{
 
-    printf("-----------------------------");
-
-    printf("-----------------------------");
+    printf("---------------------\n");
+    printf("Criar:              1\n");
+    printf("Inserir:            2\n");
+    printf("");
+    printf("Sair                9\n");
+    printf("---------------------\n");
+    scanf("%d", &n);
     
-
     switch(n){
 
       case 1:
@@ -37,10 +40,13 @@ int main(void) {
         break;
 
       case 2:
-         
-        
+        {
+        int numero;
+          printf("Escreva seu numero: \n");
+          scanf("%d", &numero );
+        inserir(raiz,numero);
         break;
-
+          }
       case 3:
         
         break;
@@ -68,26 +74,39 @@ int main(void) {
 NO* criar(NO *raiz, bool criada){
 	
 	if(!criada){
+    printf("Criação da Raiz da Arvore\n");
 		return NULL;
 	}
 	
-	printf("Raiz da arvore ja criada");
+	printf("Raiz da arvore ja criada\n");
 	
 	return raiz;
 	
 }
 
-NO* inserir(NO *raiz){
-  
-
+ void inserir(NO *raiz , int numero){
+if (raiz ==NULL)
+{
+  raiz=(NO *)malloc(sizeof(NO));
+  raiz->esquerda=NULL;
+  raiz->direita=NULL;
+  raiz->num = numero;
+  }
+  else{
+    if (numero < raiz->num){
+        inserir(raiz->direita, numero);
+    }else{
+        inserir(raiz->esquerda, numero);     
+    }
+  }
 }
-
 void imprimir(){
 
   
 }
 
 NO* esvaziar(NO *raiz){
+
   
 }
 
