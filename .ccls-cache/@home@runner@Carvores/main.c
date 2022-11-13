@@ -45,13 +45,17 @@ int main(void) {
       case 1:
           raiz = criar(raiz,criada);
           criada = true;
+
         break;
 
       case 2:
         raiz = inserir(raiz);
+        
         break;
+      
       case 3:
         imprimir(raiz);
+        
         break;
 
       case 4:
@@ -61,10 +65,15 @@ int main(void) {
 
       case 5:
         printf("A altura do arvore é : %d\n", altura(raiz));
+        
         break;
 
-      default:
-
+      case 9:
+        system("clear");
+        printf("Saindo ...\n");
+        sleep(1);
+        system("clear");
+        
         break;
       
     }
@@ -129,7 +138,6 @@ void inserirNO(NO *raiz, int nivel){
 	raiz->nivel = nivel;
 	raiz->direita = NULL;
 	raiz->esquerda = NULL;
-	
 }
 
 NO* criarNO(){
@@ -155,9 +163,7 @@ NO* procuraraRaiz(NO* raiz, int num){
 		}else{
 			aux = raiz->esquerda;
 		}
-		
 	}
-	
 	return raiz;
 }
 
