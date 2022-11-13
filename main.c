@@ -60,13 +60,12 @@ int main(void) {
         break;
 
       case 5:
-        
+        printf("A altura do arvore é : %d\n", altura(raiz));
         break;
 
       default:
 
         break;
-
       
     }
     
@@ -197,11 +196,21 @@ NO* esvaziar(NO *raiz){
 }
 
 int altura(NO *raiz){
-  if(raiz == NULL){
-    printf("Arvore vazia"); 
-  }else
-
-  return 0;
+	if(raiz != NULL){
+		int n = raiz->nivel;
+		int aux;
+		aux = altura(raiz->esquerda);
+		
+		if(aux > n){
+			n = aux;
+		}
+		
+		aux = altura(raiz->direita);
+		
+		if(aux > n){
+			n = aux;
+      }return n;	
+    }return 0;
 }
 
 void pre_ordem(NO *raiz){
