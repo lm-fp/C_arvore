@@ -34,7 +34,8 @@ int main(void) {
     printf("Criar:              1\n");
     printf("Inserir:            2\n");
     printf("Imprimir:           3\n");
-    printf("");
+    printf("Esvaziar:           4\n");
+    printf("Altura:             5\n");
     printf("Sair                9\n");
     printf("---------------------\n");
     scanf("%d", &n);
@@ -54,7 +55,8 @@ int main(void) {
         break;
 
       case 4:
-        
+        raiz = esvaziar(raiz);
+        printf("Arvore vazia!\n");
         break;
 
       case 5:
@@ -187,11 +189,17 @@ void imprimir(NO *raiz){
 }
 
 NO* esvaziar(NO *raiz){
-
-  
+  if(raiz != NULL){
+    esvaziar(raiz->esquerda );
+    esvaziar(raiz->direita );
+    free(raiz);
+  }return NULL;
 }
 
 int altura(NO *raiz){
+  if(raiz == NULL){
+    printf("Arvore vazia"); 
+  }else
 
   return 0;
 }
